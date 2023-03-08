@@ -6,6 +6,8 @@ En este proyecto se implementa dos maneras de crear una API
 
 Aunque es básico el ejemplo la intención es proponer como se puede estructurar el proyecto.
 
+Para probar los endpoints usa [Postman](https://www.postman.com/) y carga el archivo postman.json
+
 Credenciales
 
 - email: jtelesforo@gmail.com

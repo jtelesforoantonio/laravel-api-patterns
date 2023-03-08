@@ -1,0 +1,536 @@
+{
+	"info": {
+		"_postman_id": "6dda1286-3f04-484c-9c46-0f5c07d8dfb1",
+		"name": "Laravel10 - API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13805243"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "items",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "email",
+									"disabled": true
+								},
+								{
+									"key": "sortDir",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "ana",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/z9DQaZN56E3MegGAwqoXAwbrnKjYPdml",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"z9DQaZN56E3MegGAwqoXAwbrnKjYPdml"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomFullName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/4PM9yo0Or2pX3KJY3WLYe6ldQaZ51ABE",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"4PM9yo0Or2pX3KJY3WLYe6ldQaZ51ABE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/z9DQaZN56E3MegGAwqoXAwbrnKjYPdml",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"z9DQaZN56E3MegGAwqoXAwbrnKjYPdml"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"pm.collectionVariables.set('token', jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jtelesforo@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get sanctum csrf-cookie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/sanctum/csrf-cookie",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"sanctum",
+								"csrf-cookie"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"jonathan\",\n    \"email\": \"jtelesforo1@gmail.com\",\n    \"password\": \"developer\",\n    \"password_confirmation\": \"developer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Email verification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"VMdjz6PNLX94oRGoXWlKDwmpyBa20kx7\",\n    \"hash\": \"831273732396b7911dabd840d11f633d00c5b90e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/register/email-verify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"register",
+								"email-verify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Get posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "items",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "email",
+									"disabled": true
+								},
+								{
+									"key": "sortDir",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "ana",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{$randomLoremSentence}}\",\n    \"post\": \"{{$randomLoremParagraph}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posts/6BP9LA3Qgr8b7dq3nWw4k0yoxzvKDeYj",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"6BP9LA3Qgr8b7dq3nWw4k0yoxzvKDeYj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{$randomLoremSentence}}\",\n    \"post\": \"{{$randomLoremParagraph}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posts/enY9PZMyR5bLv4qDjGmwXjEK8A71Vz3p",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"enY9PZMyR5bLv4qDjGmwXjEK8A71Vz3p"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posts/enY9PZMyR5bLv4qDjGmwXjEK8A71Vz3p",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"enY9PZMyR5bLv4qDjGmwXjEK8A71Vz3p"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/vz59Q1mBMn3XNrqe9qxKYVbgo6P2Dkjl/posts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"vz59Q1mBMn3XNrqe9qxKYVbgo6P2Dkjl",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store post comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"{{$randomLoremWords}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posts/ZN95wYMQ4xnkE1J5oWb7jXz3pBL8a26A/comments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"ZN95wYMQ4xnkE1J5oWb7jXz3pBL8a26A",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post comment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"{{$randomLoremWords}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posts/ZN95wYMQ4xnkE1J5oWb7jXz3pBL8a26A/comments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"ZN95wYMQ4xnkE1J5oWb7jXz3pBL8a26A",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.addHeader('Accept: application/json');",
+					"pm.request.addHeader('Origin: 127.0.0.1:8000');"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000/api"
+		}
+	]
+}
